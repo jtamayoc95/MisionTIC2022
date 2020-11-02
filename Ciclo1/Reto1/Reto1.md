@@ -29,8 +29,6 @@ En esta ocasión se deberá leer el nombre de un producto, el costo unitario, el
 | --- | --- |
 | Chocolatinas Cohete <br>300 <br>550 <br>1000 | Producto: Chocolatinas Cohete <br>CU: $300 <br>PVP: $550 <br>Unidades Disponibles: 1000 <br>Ganancia: $250000                                        
 
-<br>
-
 ## Solución
 Primero, se utiliza la función `input` para definir las variables de variables de entrada.
 ``` python
