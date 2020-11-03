@@ -33,15 +33,21 @@ Se debe mostrar la frase: “***Inventario de vehículos***” Seguida por los v
 Si se trata de un vehículo particular se mostrará así. Recuerde que \t implica correr el ítem unos espacios a la derecha:
 
 \tVehiculo Particular - Placa: FFE 000
+
 \tvelocidad: 180 km/h
+
 \tpasajeros: 4
+
 \tcolor: Rojo
 
  Si se trata de un vehículo comercial se mostrará así:
 
 \tVehiculo Comercial - Placa: FFF 222
+
 \tvelocidad: 150 km/h
+
 \tpasajeros: 2
+
 \tCarga máxima: 250kg
 
 **Salir:** Opción 3
