@@ -175,5 +175,119 @@ public class Comercial extends Vehiculo {
 ```
 Ya con las clases definidas, se puede proceder a crear el archivo Inventario.java que incluirá la función procesarComandos() y el main.
 
+El usuario tiene tres opciones de entrada que ejecutarán código:
+- **1**: para agregar un vehículo.
+- **2**: imprimir los vehículos ingresados en el orden que se crearon.
+- **3**: salir de la aplicación.
+
+En primera instancia, se importará el Scanner para poder recibir entrada del usuario.
+``` java
+import java.util.Scanner;
+
+public class Inventario {
+    // todavía no escribimos el código
+    public static void main(String[] args) {
+        // función main, aquí va el código que se ejecutará
+    }
+}
+```
+
+
+Se usará un `switch` para evaluar el comando a procesar en la función procesarComando.
+``` java
+public static void procesarComandos(int opcion) {
+    switch (opcion) {
+        case 1:
+            comando1(); //todavía no se han definido cada uno de los comandos
+            break;
+        case 2:
+            comando2();
+            break;
+        case 3:
+            comando3();
+            break;
+        default:
+            break;
+    }
+}
+```
+Ya que el programa seguirá iterando hasta que se utilicé la opción **3** se usará un ciclo `do while` para asegurar que el programa se ejecute por lo menos una vez. También se agregará una variable `boolean` para determinar cuando terminar el ciclo.
+
+``` java
+static boolean bandera = true;    
+
+public static void main(String[] args) {
+    
+    do {
+
+    procesarComandos(comando); //todavía no se ha definido la variable comando
+        
+    } while (bandera == true);
+}
+```
+Se utilizará el Scanner para recibir la entrada del usuario y teniendo en cuenta que la opción **1** sigue el siguiente formato _1&(Comercial/Particular)&numeroPasajeros&velocidadMaxima&placa&(peso_maximo/color)_, se usará el `split()` para separar el inputs en varias cadenas de texto. Además, se creará un `Array` (Arreglo) para guardar estas cadenas de texto, en donde la posición [0] del arreglo para determinar el comando a ejecutar.
+``` java
+static boolean bandera = true;    
+static String[] arregloEntrada;
+
+public static void main(String[] args) {
+    
+    do {
+    System.out.print("Input: ");
+    arregloEntrada = sc.nextLine().split("&");
+    int comando = Integer.parseInt(arregloEntrada[0]); // la variable comando se guarda como un int porque la función procesarComandos evalúa los casos utilizando números enteros.  
+    procesarComandos(comando); //todavía no se ha definido la variable comando
+        
+    } while (bandera == true);
+}
+```
+Ahora, se procede a crear cada uno de los métodos para la función procesarComandos. Para el comando **1** se usará un `ArrayList` para guardar los vehículos (objetos) creados por el usuario. Para esto se requiere importar de la librería "util" de java.
+``` java
+import java.util.*; // para hacer el ArrayList
+```
+Con esta importación hecha es posible crear el arreglo. Recuerde que esta variable se crea por fuera de la main para que sea accesible por todas las funciones de la clase.
+``` java
+static ArrayList inventario = new ArrayList();
+```
+En el comando **1** se usarán los elementos del `Array` arregloEntrada para definir los atributos del objeto y un `if` para determinar el tipo de objeto a crear según el tipo de véhiculo (Particular o Comercial).
+Una vez se haya creado el objeto, se utilizará `.add()` para agregarlo como un nuevo elemento en el `ArrayList` inventario.
+``` java
+public static void comando1() {
+    String tipo = arregloEntrada[1];
+    int numeroPasajeros = Integer.parseInt(arregloEntrada[2]);
+    int velocidadMaxima = Integer.parseInt(arregloEntrada[3]);
+    String placa = arregloEntrada[4];
+
+if ("Comercial".equals(tipo)) {
+        int cargaMaxima = Integer.parseInt(arregloEntrada[5]);
+        Comercial vehiculoComercial = new Comercial(velocidadMaxima, numeroPasajeros, placa, tipo, cargaMaxima);
+        inventario.add(vehiculoComercial);
+
+    } else if ("Particular".equals(tipo)) {
+        String color = arregloEntrada[5];
+        Particular vehiculoParticular = new Particular(velocidadMaxima, numeroPasajeros, placa, tipo, color);
+        inventario.add(vehiculoParticular);
+    }
+}
+```
+**Nota:** Se utiliza `.equals()` para evaluar la igualdad entre `Strings`. Esto evita errores en el compilador.
+
+Para el comando **2** se debe imprimir el mensaje "\*\*\*Inventario de vehículos\*\*\*" seguido por la impresión de cada uno de los vehículos creados. Para imprimir los vehículos, se usa un ciclo `for` que recorra el `ArrayList` "inventario" e imprima cada uno de sus elementos.
+``` java
+public static void comando2() {
+    System.out.println("***Inventario de vehículos***");
+    for (int i = 0; i < inventario.size(); i++) {
+        System.out.println(inventario.get(i));
+    } 
+} 
+```
+El comando **3** hará que la bandera = `false` y así terminará el ciclo `do while`.
+``` java
+public static boolean comando3() {
+    bandera = false;
+    return bandera;
+} 
+```
+Con esto está listo el código. Recuerde tener cuidado al momento de ingresar cada uno de los bloques de código, especialmente en la clase Inventario. Las importaciones van por fuera de la clase mientras que las funciones se hacen por separado dentro de la clase Inventario al igual que la función main.
 ## Créditos
 [Jaime Andres Tamayo Cardenas](https://github.com/jtamayoc95 "jtamayoc95")
