@@ -9,7 +9,7 @@ public class Inventario {
     
     static boolean bandera = true;    
     static String[] arregloEntrada;
-    static ArrayList inventario = new ArrayList();
+    static ArrayList<> inventario = new ArrayList<>();
 
     public static void procesarComandos(int opcion) {
         switch (opcion) {
