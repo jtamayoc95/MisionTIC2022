@@ -247,7 +247,7 @@ import java.util.*; // para hacer el ArrayList
 ```
 Con esta importación hecha es posible crear el arreglo. Recuerde que esta variable se crea por fuera de la main para que sea accesible por todas las funciones de la clase.
 ``` java
-static ArrayList<> inventario = new ArrayList<>();
+static ArrayList inventario = new ArrayList<>();
 ```
 En el comando **1** se usarán los elementos del `Array` arregloEntrada para definir los atributos del objeto y un `if` para determinar el tipo de objeto a crear según el tipo de véhiculo (Particular o Comercial).
 Una vez se haya creado el objeto, se utilizará `.add()` para agregarlo como un nuevo elemento en el `ArrayList` inventario.
