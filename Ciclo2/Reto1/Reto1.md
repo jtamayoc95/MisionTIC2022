@@ -69,7 +69,10 @@ public class Reto2 {
         String mensajeImpar = " that I groot";
 ```
 **Nota:** Se utiliza (n+1) porque los arreglos comienzan en la posición cero (0). Entonces, si se el arreglo se crea de "n" elementos, quedaría faltando un elemento. Para el caso de este ejercicio se vería así:
+
+_Aquí debería mostrar la siguiente [Imagen](https://github.com/jtamayoc95/MisionTIC2022/blob/main/Ciclo2/Reto1/EntendimientoReto1_5.PNG)_
 ![](EntendimientoReto1_5.png)
+
 Ahora, para llenar la frase con los mensajes de la mitad se utilizará un ciclo `for` el cual iniciará en la posición [1] e irá hasta la posición [n]. Recuerde que la posición [0] y [n+1] llevarán los mensajes "I am" e "it" respectivamente.
 
 Para identificar si la posición corresponde a un número par o impar, se utilizará el operador módulo `%` que arroja como resultado el residuo de la división. Recuerde que si un número tiene residuo al dividirlo por dos (2) entonces es impar. Ejemplo: 
@@ -95,4 +98,3 @@ for (int i = 0; i < (fraseGroot.length); i++) {
 
 ## Créditos
 [Jaime Andres Tamayo Cardenas](https://github.com/jtamayoc95 "jtamayoc95")
-
